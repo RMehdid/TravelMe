@@ -9,8 +9,9 @@ body {
     --font-inherit: inherit;
   
     /* font sizes */
-    --font-size-13xl: 32px;
-    --font-size-21xl: 40px;
+    --font-size-24l: 24px;
+    --font-size-32l: 32px;
+    --font-size-40l: 40px;
   
     /* Colors */
     --color-whitesmoke: #f0f0f0;
