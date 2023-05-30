@@ -87,7 +87,7 @@
     
     background-image:
         linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, #f0f0f0),
-        url('assets/sunrise-1014712.jpg');
+        url('../assets/sunrise-1014712.jpg');
     background-position: center;
     height: 300px;
     background-size: cover;
