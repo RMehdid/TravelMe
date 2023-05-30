@@ -10,6 +10,72 @@
     font-family: var(--font-inter);
 }
 
+.navbar {
+    position: relative;
+    text-align: left;
+    width: 25%;
+}
+
+.navbar-background {
+    position: absolute;
+    width: 100%;
+    float: left;
+    background-color: var(--color-whitesmoke);
+    box-shadow: 10px 0 20px 10px rgba(0, 0, 0, 0.25);
+    height: 100vh;
+}
+
+.user {
+    position: relative;
+    font-weight: 600;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 156px;
+}
+
+.user-info {
+    margin: 0;
+}
+
+.user-infos {
+    position: relative;
+    font-size: var(--font-size-24l);
+    line-height: 45px;
+    margin: 10px 10% 10px 10%;
+}
+
+.nav-line-div, .main-line-div {
+    position: relative;
+    border-top: 3px solid var(--color-steelblue);
+    box-sizing: border-box;
+    
+    height: 3px;
+}
+
+.nav-line-div {
+    display: block;
+    margin: 5%;
+}
+
+.add-city {
+    background: none;
+    border: none;
+    cursor:pointer;
+    position: relative;
+    font-size: var(--font-size-24l);
+    font-weight: 600;
+    text-decoration: underline;
+    font-style: italic;
+    font-family: var(--font-inherit);
+    color: inherit;
+}
+
+.add-city:active {
+    color: #6d6d6d;
+  }
+
 .main-content {
     width: 75%;
     float: right;
@@ -124,61 +190,35 @@ a {
     height: 32px;
 }
 
-.navbar {
-    position: relative;
-    text-align: left;
-    width: 25%;
+.new-city-content {
+    display: none;
+    justify-content: space-between;
+    margin: 0 10%;
 }
 
-.navbar-background {
-    position: absolute;
-    width: 100%;
-    float: left;
-    background-color: var(--color-whitesmoke);
-    box-shadow: 10px 0 20px 10px rgba(0, 0, 0, 0.25);
-    height: 100vh;
-}
-
-.user {
-    position: relative;
-    font-weight: 600;
-    text-align: center;
-    display: flex;
+.form-field {
     align-items: center;
-    justify-content: center;
-    height: 156px;
-}
-
-.user-info {
-    margin: 0;
-}
-
-.user-infos {
-    position: relative;
-    font-size: var(--font-size-24l);
-    line-height: 45px;
-    margin: 10px 10% 10px 10%;
-}
-
-.nav-line-div, .main-line-div {
-    position: relative;
-    border-top: 3px solid var(--color-steelblue);
+    height: 50px;
+    width: 150px;
+    border-radius: var(--br-xs);
+    background-color: var(--color-white);
+    box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.25);
+    border: 2px solid var(--color-black);
     box-sizing: border-box;
-    
-    height: 3px;
 }
 
-.nav-line-div {
-    display: block;
-    margin: 5%;
-}
-
-.add-city {
+.submit-button {
     position: relative;
+    padding: 1.5% 4%;
     font-size: var(--font-size-24l);
-    font-weight: 600;
-    text-decoration: underline;
-    font-style: italic;
-    font-family: var(--font-inherit);
-    color: inherit;
+    border-radius: var(--br-xs);
+    background-color: var(--color-white);
+    box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.25);
+    border: 2px solid var(--color-black);
+    box-sizing: border-box;
+    float: right;
+    margin: 3% 0;
+}
+.html {
+    scroll-behavior: smooth;
 }

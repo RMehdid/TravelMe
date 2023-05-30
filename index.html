@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="main.js"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
-    <title>tag</title>
+    <title>iTravel</title>
     <link rel="stylesheet" href="global.css" />
     <link rel="stylesheet" href="style.css" />
     <link
@@ -25,14 +26,13 @@
               <div class="cell-title">Continent</div>
               <input type="text" class="text-field" />
             </div>
-          
 
             <div class="search-cell">
               <div class="cell-title">Site</div>
               <input type="text" class="text-field" />
             </div>
-         </div>
-         <div class="lower-cells">
+          </div>
+          <div class="lower-cells">
             <div class="search-cell">
               <div class="cell-title">Pays</div>
               <input type="text" class="text-field" />
@@ -45,7 +45,7 @@
           </div>
         </div>
 
-        <button class="validate-button">Valider</button>
+        <button onclick="search()" class="validate-button">Valider</button>
 
         <div class="main-line-div"></div>
 
@@ -97,6 +97,124 @@
             </div>
           </div>
         </div>
+
+        <div class="main-line-div"></div>
+
+        <div id="new-city-content" class="new-city-content">
+          <a
+            class="search-result-div-title"
+            href="http://www.google.com"
+            target="_blank"
+            >Ajouter une ville</a
+          >
+          <form class="new-city-form">
+            <div class="horizontal">
+              <div class="search-cell">
+                <label for="ville">Ville:</label>
+                <input
+                  type="text"
+                  id="ville"
+                  class="form-field"
+                  name="ville"
+                  required
+                />
+              </div>
+
+              <div class="search-cell">
+                <label for="pays">Pays:</label>
+                <input
+                  type="text"
+                  id="pays"
+                  class="form-field"
+                  name="pays"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="horizontal">
+              <div class="search-cell">
+                <label for="continent">Continent:</label>
+                <input
+                  type="text"
+                  id="continent"
+                  class="form-field"
+                  name="continent"
+                  required
+                />
+              </div>
+
+              <div class="search-cell">
+                <label for="descriptif">Descriptif:</label>
+                <textarea
+                  id="descriptif"
+                  class="form-field"
+                  name="descriptif"
+                  required
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="horizontal">
+              <div class="search-cell">
+                <label for="sites">Sites:</label>
+                <input
+                  type="text"
+                  id="sites"
+                  class="form-field"
+                  name="sites"
+                  required
+                />
+              </div>
+
+              <div class="search-cell">
+                <label for="photos">Photos:</label>
+                <input type="file" id="photos" name="photos" multiple />
+              </div>
+            </div>
+
+            <div class="horizontal">
+              <div class="search-cell">
+                <label for="hotels">Hôtels:</label>
+                <input
+                  type="text"
+                  id="hotels"
+                  class="form-field"
+                  name="hotels"
+                />
+              </div>
+
+              <div class="search-cell">
+                <label for="restaurants">Restaurants:</label>
+                <input
+                  type="text"
+                  id="restaurants"
+                  class="form-field"
+                  name="restaurants"
+                />
+              </div>
+            </div>
+
+            <div class="horizontal">
+              <div class="search-cell">
+                <label for="gares">Gares:</label>
+                <input type="text" id="gares" class="form-field" name="gares" />
+              </div>
+
+              <div class="search-cell">
+                <label for="aeroports">Aéroports:</label>
+                <input
+                  type="text"
+                  id="aeroports"
+                  class="form-field"
+                  name="aeroports"
+                />
+              </div>
+            </div>
+
+            <input type="submit" class="submit-button" value="Submit" />
+          </form>
+        </div>
       </div>
       <div class="navbar">
         <div class="navbar-background"></div>
@@ -110,11 +228,13 @@
           <p class="user-info">Mail: t.toto@mail.dz</p>
         </div>
         <div class="nav-line-div"></div>
-        <a class="add-city" href="http://www.google.com" target="_blank">
-          <ul>
-            ajouter une ville
-          </ul>
-        </a>
+        <button onclick="showForm()" class="add-city">
+          <a href="#new-city-content">
+            <ul>
+              ajouter une ville
+            </ul>
+          </a>
+        </button>
       </div>
     </div>
   </body>
