@@ -84,7 +84,6 @@
 }
 
 .main-title {
-    
     background-image:
         linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, #f0f0f0),
         url('../assets/sunrise-1014712.jpg');
@@ -201,6 +200,55 @@ a {
     height: 50px;
     width: 150px;
     border-radius: var(--br-xs);
+    background-color: var(--color-white);
+    box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.25);
+    border: 2px solid var(--color-black);
+    box-sizing: border-box;
+}
+
+.drop-down-add {
+    display: inline;
+    margin: 0;
+}
+
+.add-hotel-button {
+    align-items: center;
+    height: 50px;
+    width: 60px;
+    border-radius: 16px 0 0 16px;
+    background-color: var(--color-white);
+    box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.25);
+    border: 2px solid var(--color-black);
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.drop-down-menu {
+    align-items: center;
+    height: 50px;
+    width: 150px;
+    background-color: var(--color-white);
+    box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.25);
+    border: 2px solid var(--color-black);
+    box-sizing: border-box;
+    border-radius: 0 16px 16px 0;
+    margin: 0;
+}
+
+#hotels {
+    display: inline;
+}
+
+#hotels-new {
+    display: none;
+}
+
+.hotel-form-field {
+    align-items: center;
+    height: 50px;
+    width: 150px;
+    border-radius: 0 16px 16px 0;
     background-color: var(--color-white);
     box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.25);
     border: 2px solid var(--color-black);

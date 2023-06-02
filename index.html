@@ -107,7 +107,7 @@
             target="_blank"
             >Ajouter une ville</a
           >
-          <form class="new-city-form" method="post" action="/server/index.php">
+          <form class="new-city-form" method="post" action="/server/addCity.php">
             <div class="horizontal">
               <div class="search-cell">
                 <label for="ville">Ville:</label>
@@ -176,12 +176,23 @@
             <div class="horizontal">
               <div class="search-cell">
                 <label for="hotels">Hôtels:</label>
-                <input
+                <div class="drop-down-add">
+                  <Button id="toggle-hotel" onclick="toggleAddHotel()" type="button" class="add-hotel-button">
+                    Add new
+                  </Button>
+
+                  <select name="hotels" id="hotels" class="drop-down-menu">
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
+                  </select>
+                  <input
                   type="text"
-                  id="hotels"
-                  class="form-field"
+                  id="hotels-new"
+                  class="hotel-form-field"
                   name="hotels"
                 />
+                </div>
               </div>
 
               <div class="search-cell">
