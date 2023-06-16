@@ -25,7 +25,7 @@
         <header>
           <a href="#">Etudiant</a>
         </header>
-        <div class="navbar" style="color: white; padding: 16px;">
+        <div class="navbar" style="color: white; padding: 16px">
           <div class="user-infos">
             <p class="user-info">Nom: Toto</p>
             <p class="user-info">Prenom: Tutu</p>
@@ -35,70 +35,84 @@
             <p class="user-info">Mail: t.toto@mail.dz</p>
           </div>
           <div class="nav-line-div"></div>
-          <a class="btn btn-primary" href="/newCity-form/newCity.php" role="button">Add a new city</a>
+          <a
+            class="btn btn-primary"
+            href="/newCity-form/newCity.php"
+            role="button"
+            >Add a new city</a
+          >
         </div>
       </div>
       <!-- Content -->
       <div class="main-content">
         <h1 class="title">iTravel the world</h1>
         <div class="content">
-          <div class="search-fields">
-            <div class="row">
-              <div class="col input-group mb-3">
-                <span class="input-group-text" id="inputGroup-sizing-default"
-                  >Continent</span
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  aria-label="Sizing example input"
-                  aria-describedby="inputGroup-sizing-default"
-                />
+          <form action="search.php" method="get">
+            <div class="search-fields">
+              <div class="row">
+                <div class="col input-group mb-3">
+                  <span class="input-group-text" id="continent"
+                    >Continent</span
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="continent"
+                    id="continent"
+                    name="continent"
+                  />
+                </div>
+
+                <div class="col input-group mb-3">
+                  <span class="input-group-text" id="site"
+                    >Site</span
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="site"
+                    id="site"
+                    name="site"
+                  />
+                </div>
               </div>
 
-              <div class="col input-group mb-3">
-                <span class="input-group-text" id="inputGroup-sizing-default"
-                  >Site</span
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  aria-label="Sizing example input"
-                  aria-describedby="inputGroup-sizing-default"
-                />
+              <div class="row">
+                <div class="col input-group mb-3">
+                  <span class="input-group-text" id="country"
+                    >Country</span
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="country"
+                    id="country"
+                    name="country"
+                  />
+                </div>
+
+                <div class="col input-group mb-3">
+                  <span class="input-group-text" id="ville"
+                    >Ville</span
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    aria-label="Sizing example input"
+                    aria-describedby="ville"
+                    id="ville"
+                    name="ville"
+                  />
+                </div>
               </div>
             </div>
-
-            <div class="row">
-              <div class="col input-group mb-3">
-                <span class="input-group-text" id="inputGroup-sizing-default"
-                  >Country</span
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  aria-label="Sizing example input"
-                  aria-describedby="inputGroup-sizing-default"
-                />
-              </div>
-
-              <div class="col input-group mb-3">
-                <span class="input-group-text" id="inputGroup-sizing-default"
-                  >Ville</span
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  aria-label="Sizing example input"
-                  aria-describedby="inputGroup-sizing-default"
-                />
-              </div>
-            </div>
-          </div>
-
-          <button type="submit" class="btn btn-primary float-lg-end">
-            Search
-          </button>
+            <button type="submit" class="btn btn-primary float-lg-end" onclick="search()">
+              Search
+            </button>
+          </form>
 
           <ul class="list-group results">
             <li class="list-group-item result">
