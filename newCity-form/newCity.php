@@ -1,7 +1,3 @@
-<?php
-require 'get.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +36,7 @@ require 'get.php';
                                 <select name="pays" class="form-select" id="pays">
                                     <?php $pays = get_pays();
                                     foreach ($pays as $pay) { ?>
-                                        <option value="<?= $pay['idpay'] ?>"><?= $pay['nompay'] ?></option>
+                                        <option value="<?= $pay['nompay'] ?>"><?= $pay['nompay'] ?></option>
                                     <?php } ?>
                                 </select>
                             </div>
@@ -72,7 +68,7 @@ require 'get.php';
                                     foreach ($hotels as $hotel) { ?>
                                     <li>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="<?= $hotel['idnec'] ?>" id="hotel1"
+                                            <input class="form-check-input" type="checkbox" value="<?= $hotel['nomnec'] ?>" id="hotel1"
                                                 name="hotel1">
                                             <label class="form-check-label" for="hotel1" name="hotel">
                                                 <?= $hotel['nomnec'] ?>
@@ -81,9 +77,11 @@ require 'get.php';
                                     </li>
                                     <?php } ?>
                                 </ul>
+                                <form action="insert.php" method="post">
                                 <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                    id="hotels">
+                                    id="hotels" name="hotel">
                                 <button type="button" class="btn btn-light">Add</button>
+                                </form>
                             </div>
 
                             <div class="input-group mb-3 input-group-lg">
@@ -95,7 +93,7 @@ require 'get.php';
                                     foreach ($restaurants as $restaurant) { ?>
                                     <li>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="<?= $restaurant['idnec'] ?>" id="hotel1"
+                                            <input class="form-check-input" type="checkbox" value="<?= $restaurant['nomnec'] ?>" id="hotel1"
                                                 name="hotel1">
                                             <label class="form-check-label" for="hotel1" name="hotel">
                                                 <?= $restaurant['nomnec'] ?>
@@ -117,7 +115,7 @@ require 'get.php';
                                 foreach ($gares as $gare) { ?>
                                     <li>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="<?= $gare['idnec'] ?>" id="hotel1" name="hotel1">
+                                            <input class="form-check-input" type="checkbox" value="<?= $gare['nomnec'] ?>" id="hotel1" name="hotel1">
                                             <label class="form-check-label" for="hotel1" name="hotel">
                                                 <?= $gare['nomnec'] ?>
                                             </label>
@@ -135,12 +133,12 @@ require 'get.php';
                                     data-bs-auto-close="outside" aria-expanded="false" id="aeroports">Airports</button>
                                 <ul class="dropdown-menu" style="padding-left: 6px;">
                                 <?php $aeroports = get_necessaire('aeroport');
-                                    foreach ($gares as $gare) { ?>
+                                    foreach ($aeroports as $aeroport) { ?>
                                     <li>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="<?= $aeroport['idnec'] ?>" id="hotel1"
-                                                name="hotel1">
-                                            <label class="form-check-label" for="hotel1" name="hotel">
+                                            <input class="form-check-input" type="checkbox" value="<?= $aeroport['nomnec'] ?>" id="aeroport"
+                                                name="aeroport">
+                                            <label class="form-check-label" for="aeroport" name="aeroport">
                                                 <?= $aeroport['nomnec'] ?>
                                             </label>
                                         </div>
@@ -153,8 +151,7 @@ require 'get.php';
                             </div>
 
                             <div class="form-button mt-3">
-                                <button id="submit" type="submit" class="btn btn-primary"
-                                    onclick="insertData()">Create</button>
+                                <button id="submit" type="submit" class="btn btn-primary">Create</button>
                             </div>
                         </form>
                     </div>
@@ -168,3 +165,31 @@ require 'get.php';
 </body>
 
 </html>
+<?php
+function get_continents()
+{
+    $pdo = new PDO('mysql:host=localhost;dbname=voyage;charset=utf8', 'root', 'root');
+
+    $statement = $pdo->prepare('SELECT * FROM continent');
+    $statement->execute();
+    return $statement->fetchAll();
+}
+
+function get_pays()
+{
+    $pdo = new PDO('mysql:host=localhost;dbname=voyage;charset=utf8', 'root', 'root');
+
+    $statement = $pdo->prepare('SELECT * FROM pays');
+    $statement->execute();
+    return $statement->fetchAll();
+}
+
+function get_necessaire($typenec)
+{
+    $pdo = new PDO('mysql:host=localhost;dbname=voyage;charset=utf8', 'root', 'root');
+
+    $statement = $pdo->prepare("SELECT * FROM necessaire where typenec = :typenec");
+    $statement->bindParam(':typenec', $typenec);
+    $statement->execute();
+    return $statement->fetchAll();
+}

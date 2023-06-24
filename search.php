@@ -1,45 +1,31 @@
 <?php
 
-global $conn;
+    $results = array(); // Initialize an empty array
 
-$db_host = 'localhost';
-$db_user = 'root';
-$db_password = 'root';
-$db_db = 'voyage';
+    // Check if the search form has been submitted
+    if (isset($_GET['continent']) || isset($_GET['site']) || isset($_GET['country']) || isset($_GET['ville'])) {
+        // Get the search terms from the form fields
+        $continent = $_GET['continent'] ?? '';
+        $site = $_GET['site'] ?? '';
+        $country = $_GET['country'] ?? '';
+        $ville = $_GET['ville'] ?? '';
 
-$conn = @new mysqli(
-    $db_host,
-    $db_user,
-    $db_password,
-    $db_db
-);
+        try {
+            $pdo = new PDO('mysql:host=localhost;dbname=voyage;charset=utf8', 'root', 'root');
 
-$continent = $_GET['continent'];
-$country = $_GET['country'];
-$site = $_GET['site'];
-$ville = $_GET['ville'];
+            $statement = $pdo->prepare('SELECT * FROM ville JOIN pays ON ville.idpay = pays.idpay JOIN continent ON pays.idcon = continent.idcon JOIN site ON ville.idvil = site.idsit WHERE nomcon = :continent OR nompay = :country OR nomsit = :site OR nomvil = :ville');
+            $statement->bindParam(':continent', $continent);
+            $statement->bindParam(':country', $country);
+            $statement->bindParam(':site', $site);
+            $statement->bindParam(':ville', $ville);
+            $statement->execute();
 
-$statement = $pdo->prepare('SELECT * FROM ville JOIN pays ON ville.idpay = pays.idpay JOIN continent ON pays.idcon = continent.idcon JOIN site ON ville.idvil = site.idsit WHERE nomcon = :continent AND nompay = :pays AND nomsit = :site AND nomvil = :ville');
-$statement->bindParam(':continent', $continent);
-$statement->bindParam(':pays', $pays);
-$statement->bindParam(':site', $site);
-$statement->bindParam(':ville', $ville);
-$statement->execute();
-$statement->fetchAll();
+            $results = $statement->fetchAll();
+        } catch (PDOException $e) {
+            // Handle the database connection or query error
+            // Display an error message or log the error
+            // You can customize this part to match your error handling approach
+            echo 'Error: ' . $e->getMessage();
+        }
+    }
 ?>
-
-<ul class="list-group results">
-    <?php foreach ($results as $result) { ?>
-        <li class="list-group-item result">
-        $result['nomvil'], $result['nompay']
-        <div>
-            <button type="button" class="btn btn-light">
-                <i class="bi bi-pen-fill"></i>
-            </button>
-            <button type="button" class="btn btn-light">
-                <i class="bi bi-trash3-fill"></i>
-            </button>
-        </div>
-    </li>
-    <?php } ?>
-</ul>
